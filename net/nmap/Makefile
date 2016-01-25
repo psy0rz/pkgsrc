@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.125 2015/11/20 15:37:40 adam Exp $
+# $NetBSD: Makefile,v 1.127 2016/01/24 13:46:49 richard Exp $
 
-DISTNAME=	nmap-7.00
+DISTNAME=	nmap-7.01
 CATEGORIES=	net security
 MASTER_SITES=	http://nmap.org/dist/
 EXTRACT_SUFX=	.tar.bz2
@@ -26,6 +26,8 @@ CONFIGURE_ARGS+=	--without-subversion
 
 BUILD_DEFS+=		IPV6_READY
 
+TEST_TARGET+=		check
+
 .include "options.mk"
 
 CHECK_INTERPRETER_SKIP=		bin/uninstall_zenmap
@@ -36,6 +38,7 @@ CHECK_INTERPRETER_SKIP+=	share/nmap/nselib/data/passwords.lst
 CHECK_INTERPRETER_SKIP+=	share/nmap/nselib/data/rtsp-urls.txt
 CHECK_INTERPRETER_SKIP+=	share/nmap/nselib/data/snmpcommunities.lst
 CHECK_PORTABILITY_SKIP+=	libpcap/configure
+CHECK_PORTABILITY_SKIP+=	zenmap/install_scripts/macosx/launcher.sh
 
 .include "../../mk/bsd.prefs.mk"
 
@@ -57,6 +60,11 @@ CFLAGS.SunOS+=	-D__FUNCTION__=__FILE__
 pre-build:
 	${ECHO} "# ignored" > ${WRKSRC}/makefile.dep
 .endif
+
+# Remove eventual uninstall_ndiff and/or uninstall_zenmap files.
+# This also avoids check-interpreter.mk issues with "/usr/bin/env python".
+post-install:
+	${RM} -f ${DESTDIR}${PREFIX}/bin/uninstall_*
 
 .include "../../devel/pcre/buildlink3.mk"
 .include "../../math/liblinear/buildlink3.mk"

@@ -1,10 +1,8 @@
-# $NetBSD: Makefile,v 1.99 2015/10/15 17:31:32 adam Exp $
+# $NetBSD: Makefile,v 1.104 2016/01/23 05:45:59 ryoon Exp $
 
 DISTNAME=	sqlite-autoconf-${SQLITE3_DISTVERSION}
 PKGNAME=	sqlite3-${SQLITE3_VERSION}
 CATEGORIES=	databases
-MASTER_SITES=	http://www.hwaci.com/sw/sqlite/2015/ \
-		http://www.sqlite.org/2015/
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
 HOMEPAGE=	http://www.sqlite.org/
@@ -55,5 +53,13 @@ LDFLAGS.SCO_SV+=	-lpthread
 .endif
 
 .include "../../mk/readline.buildlink3.mk"
+.if ${READLINE_TYPE} == "editline" && ${IS_BUILTIN.editline} == "yes"
+LDFLAGS.NetBSD+=	-ledit
+LDFLAGS.DragonFly+=	-ledit
+.else
+LDFLAGS.NetBSD+=	-lreadline
+LDFLAGS.DragonFly+=	-lreadline
+.endif
+
 .include "../../mk/dlopen.buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"

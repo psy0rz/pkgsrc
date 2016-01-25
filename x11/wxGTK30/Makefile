@@ -1,18 +1,18 @@
-# $NetBSD: Makefile,v 1.9 2015/04/25 14:25:20 tnn Exp $
+# $NetBSD: Makefile,v 1.12 2016/01/19 04:19:15 dbj Exp $
 
 VERSION=	3.0.2
-PKGREVISION=	2
+PKGREVISION=	3
 DISTNAME=	wxWidgets-${VERSION}
 PKGNAME=	wxGTK30-${VERSION}
 CATEGORIES=	x11
-MASTER_SITES=   ${MASTER_SITE_SOURCEFORGE:=wxwindows/}
+MASTER_SITES=	${MASTER_SITE_SOURCEFORGE:=wxwindows/}
 EXTRACT_SUFX=	.tar.bz2
 
 MAINTAINER=	dbj@NetBSD.org
 HOMEPAGE=	http://www.wxwidgets.org/
 COMMENT=	GTK-based implementation of the wxWidgets GUI library
 # LGPLv2 with additional permission; http://opensource.org/licenses/wxwindows
-LICENSE=        gnu-lgpl-v2
+LICENSE=	gnu-lgpl-v2
 
 PATCHFILES=		${DISTNAME}-libtool.diff.bz2
 PATCH_SITES=		${MASTER_SITE_LOCAL}
@@ -20,7 +20,6 @@ PATCH_DIST_STRIP.${DISTNAME}-libtool.diff.bz2= -p1
 
 USE_TOOLS+=		pkg-config msgfmt
 USE_LIBTOOL=		YES
-USE_PKGLOCALEDIR=	YES
 USE_LANGUAGES=		c c++
 GNU_CONFIGURE=		YES
 USE_GNU_CONFIGURE_HOST=	no
@@ -36,13 +35,15 @@ CONFIGURE_ARGS+=	--enable-mediactrl
 # wxregexu symbols are not exported properly as of 3.0.1
 # http://trac.wxwidgets.org/ticket/16571
 CONFIGURE_ARGS+=	--disable-visibility
+CONFIGURE_ARGS+=	--bindir=${PREFIX}/libexec/wx-3.0
+CONFIGURE_ARGS+=	--datarootdir=${PREFIX}/share/wx-3.0
 
-DOCDIR=			share/doc/wxGTK
-PKGLOCALEDIR=		share
+DOCDIR=			share/wx-3.0/doc/wxGTK
 
 INSTALL_MAKE_FLAGS+=	LN_S="ln -fs"
 
-INSTALLATION_DIRS=	${DOCDIR}
+INSTALLATION_DIRS+=	${DOCDIR}
+INSTALLATION_DIRS+=	bin
 
 REPLACE_SH=		wx-config.in wx-config-inplace.in
 
@@ -83,6 +84,11 @@ post-install:
 	${INSTALL_DATA} ${WRKSRC}/docs/lgpl.txt ${DESTDIR}${PREFIX}/${DOCDIR}
 	${INSTALL_DATA} ${WRKSRC}/docs/changes.txt ${DESTDIR}${PREFIX}/${DOCDIR}
 	${INSTALL_DATA} ${WRKSRC}/docs/readme.txt ${DESTDIR}${PREFIX}/${DOCDIR}
+	# Create symlinks for now.  Eventually we may want to use ALTERNATIVES
+	${LN} -sf ../libexec/wx-3.0/wxrc ${DESTDIR}${PREFIX}/bin/wxrc
+	${LN} -sf ../libexec/wx-3.0/wxrc-3.0 ${DESTDIR}${PREFIX}/bin/wxrc-3.0
+	${LN} -sf ../libexec/wx-3.0/wx-config ${DESTDIR}${PREFIX}/bin/wx-config
+	${LN} -sf ../libexec/wx-3.0/wx-config ${DESTDIR}${PREFIX}/bin/wx-config-3.0
 
 .include "../../graphics/MesaLib/buildlink3.mk"
 .include "../../devel/gettext-lib/buildlink3.mk"

@@ -481,13 +481,13 @@ build the packages for himself, which is a time-costly task.
 
 pkgsrc currently contains several thousand packages, including:
 
-  * www/apache - The Apache web server
+  * www/apache24 - The Apache web server
 
   * www/firefox - The Firefox web browser
 
   * meta-pkgs/gnome - The GNOME Desktop Environment
 
-  * meta-pkgs/kde3 - The K Desktop Environment
+  * meta-pkgs/kde4 - The K Desktop Environment
 
 ...just to name a few.
 
@@ -507,9 +507,10 @@ pkgsrc provides the following key features:
   * All packages are installed in a consistent directory tree, including
     binaries, libraries, man pages and other documentation.
 
-  * Package dependencies, including when performing package updates, are
-    handled automatically. The configuration files of various packages are
-    handled automatically during updates, so local changes are preserved.
+  * Tracking of package dependencies automatically, including when performing
+    updates, to ensure required packages are installed. The configuration files
+    of various packages are handled automatically during updates, so local
+    changes are preserved.
 
   * Like NetBSD, pkgsrc is designed with portability in mind and consists of
     highly portable code. This allows the greatest speed of development when
@@ -592,6 +593,8 @@ Table 1.1. Platforms supported by pkgsrc
 |Cygwin                                |   Mar 2013    |README.Cygwin         |
 |--------------------------------------+---------------+----------------------|
 |GNU/kFreeBSD                          |   Jul 2013    |README.GNUkFreeBSD    |
+|--------------------------------------+---------------+----------------------|
+|Bitrig                                |   Jun 2014    |README.Bitrig         |
 +-----------------------------------------------------------------------------+
 
 
@@ -1055,7 +1058,7 @@ the --unprivileged option, workaround is:
 
 3.3.2. Darwin (Mac OS X)
 
-Darwin 5.x and up are supported.
+Darwin 8.x and up are supported.
 
 Before you start, you need to download and install the Mac OS X Developer Tools
 from Apple's Developer Connection. This requires (free) membership. See http://
@@ -3204,9 +3207,18 @@ supported, e.g.
 
 PYTHON_VERSIONS_INCOMPATIBLE=       27
 
-If the packaged software is a Python module, include "../../lang/python/
-extension.mk". In this case, the package directory should be called "
-py-software" and PKGNAME should be set to "${PYPKGPREFIX}-${DISTNAME}", e.g.
+If the packaged software is a Python module, include one of ../../lang/python/
+egg.mk, ../../lang/python/distutils.mk, or ../../lang/python/extension.mk.
+
+Most Python packages use either "distutils" or easy-setup/setuptools ("eggs").
+if the packaged software is using setuptools, you only need to include "../../
+lang/python/egg.mk". Otherwise, if the software uses "distutils", include "..
+/../lang/python/distutils.mk". so pkgsrc will use this framework. "distutils"
+uses a script called setup.py, if the "distutils" driver is not called
+setup.py, set the PYSETUP variable to the name of the script.
+
+Either way, the package directory should be called "py-software" and PKGNAME
+should be set to "${PYPKGPREFIX}-${DISTNAME}", e.g.
 
 DISTNAME=   foopymodule-1.2.10
 PKGNAME=    ${PYPKGPREFIX}-${DISTNAME}
@@ -3217,15 +3229,6 @@ variable and set it to the list of files (paths relative to WRKSRC) that must
 be corrected. For example:
 
 REPLACE_PYTHON=   *.py
-
-Most Python packages use either "distutils" or easy-setup ("eggs"). If the
-software uses "distutils", include "../../lang/python/distutils.mk". so pkgsrc
-will use this framework. "distutils" uses a script called setup.py, if the "
-distutils" driver is not called setup.py, set the PYSETUP variable to the name
-of the script.
-
-Otherwise, if the packaged software is egg-aware, you only need to include "..
-/../lang/python/egg.mk".
 
 Some Python modules have separate distributions for Python-2.x and Python-3.x
 support. In pkgsrc this is handled by the versioned_dependencies.mk file. Set

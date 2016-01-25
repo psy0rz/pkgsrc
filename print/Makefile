@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.653 2015/12/12 22:46:30 markd Exp $
+# $NetBSD: Makefile,v 1.656 2016/01/22 21:07:52 markd Exp $
 #
 
 COMMENT=	Desktop publishing
@@ -103,6 +103,7 @@ SUBDIR+=	p5-biblatex-biber
 SUBDIR+=	papersize
 SUBDIR+=	paps
 SUBDIR+=	pcps
+SUBDIR+=	pdf-redact-tools
 SUBDIR+=	pdf2djvu
 SUBDIR+=	pdfjam
 SUBDIR+=	pdflib
@@ -274,6 +275,7 @@ SUBDIR+=	tex-babel-serbianc
 SUBDIR+=	tex-babel-slovak
 SUBDIR+=	tex-babel-slovenian
 SUBDIR+=	tex-babel-sorbian
+SUBDIR+=	tex-babel-spanglish
 SUBDIR+=	tex-babel-spanish
 SUBDIR+=	tex-babel-swedish
 SUBDIR+=	tex-babel-thai
@@ -762,6 +764,8 @@ SUBDIR+=	tex-luatex-doc
 SUBDIR+=	tex-macros2e-doc
 SUBDIR+=	tex-magaz
 SUBDIR+=	tex-magaz-doc
+SUBDIR+=	tex-makecmds
+SUBDIR+=	tex-makecmds-doc
 SUBDIR+=	tex-marginnote
 SUBDIR+=	tex-marginnote-doc
 SUBDIR+=	tex-math-e-doc
@@ -774,6 +778,8 @@ SUBDIR+=	tex-mdframed
 SUBDIR+=	tex-mdframed-doc
 SUBDIR+=	tex-mdwtools
 SUBDIR+=	tex-mdwtools-doc
+SUBDIR+=	tex-media9
+SUBDIR+=	tex-media9-doc
 SUBDIR+=	tex-memdesign-doc
 SUBDIR+=	tex-memoir
 SUBDIR+=	tex-memoir-doc

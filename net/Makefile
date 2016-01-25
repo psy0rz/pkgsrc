@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1093 2015/12/13 00:33:07 kamil Exp $
+# $NetBSD: Makefile,v 1.1099 2016/01/11 13:47:22 abs Exp $
 #
 
 COMMENT=	Networking tools
@@ -576,6 +576,7 @@ SUBDIR+=	pxe
 SUBDIR+=	py-GeoIP
 SUBDIR+=	py-IP
 SUBDIR+=	py-ORBit
+SUBDIR+=	py-Socks
 SUBDIR+=	py-adns
 SUBDIR+=	py-amqp
 SUBDIR+=	py-apache-libcloud
@@ -592,6 +593,7 @@ SUBDIR+=	py-eventlib
 SUBDIR+=	py-foolscap
 SUBDIR+=	py-gevent
 SUBDIR+=	py-google
+SUBDIR+=	py-google-cloud-sdk
 SUBDIR+=	py-hatop
 SUBDIR+=	py-hpack
 SUBDIR+=	py-ipaddress
@@ -646,6 +648,7 @@ SUBDIR+=	rdesktop
 SUBDIR+=	rdist6
 SUBDIR+=	remmina
 SUBDIR+=	remmina-plugins
+SUBDIR+=	restclient-ui
 SUBDIR+=	rinetd
 SUBDIR+=	rootprobe
 SUBDIR+=	rp-l2tp
@@ -667,6 +670,7 @@ SUBDIR+=	ruby-net-ldap
 SUBDIR+=	ruby-net-ping
 SUBDIR+=	ruby-netaddr
 SUBDIR+=	ruby-netrc
+SUBDIR+=	ruby-pluggaloid
 SUBDIR+=	ruby-rubytter
 SUBDIR+=	ruby-snmp
 SUBDIR+=	ruby-soap4r
@@ -674,6 +678,7 @@ SUBDIR+=	ruby-stompserver
 SUBDIR+=	ruby-tw
 SUBDIR+=	ruby-twitter
 SUBDIR+=	ruby-twitter-stream
+SUBDIR+=	ruby-twitter-text
 SUBDIR+=	ruby-userstream
 SUBDIR+=	samba
 SUBDIR+=	samba4
@@ -799,6 +804,7 @@ SUBDIR+=	whoson
 SUBDIR+=	wide-dhcpv6
 SUBDIR+=	wimon
 SUBDIR+=	wireshark
+SUBDIR+=	wireshark2
 SUBDIR+=	wistumbler
 SUBDIR+=	wistumbler2
 SUBDIR+=	wistumbler2-gtk

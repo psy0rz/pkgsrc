@@ -1,10 +1,10 @@
-# $NetBSD: Makefile,v 1.59 2015/11/18 14:19:55 ryoon Exp $
+# $NetBSD: Makefile,v 1.61 2016/01/10 19:05:27 markd Exp $
 
-DISTNAME=	kde-runtime-${_KDE_VERSION}
-PKGNAME=	${DISTNAME:S/-4/4-4/}
-PKGREVISION=	6
+DISTNAME=	kde-runtime-15.12.0
+PKGNAME=	${DISTNAME:S/-1/4-1/}
 CATEGORIES=	x11
 COMMENT=	Runtime requirements for the KDE integrated X11 desktop
+MASTER_SITES=	${MASTER_SITE_KDE:=applications/15.12.0/src/}
 
 .include "../../meta-pkgs/kde4/Makefile.kde4"
 

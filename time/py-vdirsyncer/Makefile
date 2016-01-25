@@ -1,6 +1,6 @@
-# $NetBSD: Makefile,v 1.25 2015/11/06 21:32:45 wiz Exp $
+# $NetBSD: Makefile,v 1.28 2016/01/02 10:51:17 wiz Exp $
 
-DISTNAME=	vdirsyncer-0.7.3
+DISTNAME=	vdirsyncer-0.7.5
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME}
 CATEGORIES=	time
 MASTER_SITES=	${MASTER_SITE_PYPI:=v/vdirsyncer/}
@@ -17,8 +17,8 @@ DEPENDS+=	${PYPKGPREFIX}-atomicwrites-[0-9]*:../../devel/py-atomicwrites
 DEPENDS+=	${PYPKGPREFIX}-click>=5.0:../../devel/py-click
 DEPENDS+=	${PYPKGPREFIX}-click-log-[0-9]*:../../devel/py-click-log
 DEPENDS+=	${PYPKGPREFIX}-click-threading-[0-9]*:../../devel/py-click-threading
-DEPENDS+=	${PYPKGPREFIX}-lxml-[0-9]*:../../textproc/py-lxml
-DEPENDS+=	${PYPKGPREFIX}-requests-[0-9]*:../../devel/py-requests
+DEPENDS+=	${PYPKGPREFIX}-lxml>=3.1:../../textproc/py-lxml
+DEPENDS+=	${PYPKGPREFIX}-requests>=2.9.1:../../devel/py-requests
 DEPENDS+=	${PYPKGPREFIX}-requests-oauthlib-[0-9]*:../../security/py-requests-oauthlib
 DEPENDS+=	${PYPKGPREFIX}-requests-toolbelt>=0.4.0:../../devel/py-requests-toolbelt
 # optional, but recommended

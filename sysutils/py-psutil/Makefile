@@ -1,8 +1,7 @@
-# $NetBSD: Makefile,v 1.15 2015/12/14 22:58:20 ryoon Exp $
+# $NetBSD: Makefile,v 1.17 2016/01/20 22:59:09 ryoon Exp $
 
-DISTNAME=	psutil-release-3.3.0
+DISTNAME=	psutil-release-3.4.2
 PKGNAME=	${PYPKGPREFIX}-${DISTNAME:S/-release//}
-PKGREVISION=	1
 CATEGORIES=	sysutils
 MASTER_SITES=	${MASTER_SITE_GITHUB:=giampaolo/}
 GITHUB_PROJECT=	psutil
@@ -24,7 +23,7 @@ PLIST_SUBST+=	SYSTEM=osx
 .elif !empty(OPSYS:M*BSD)
 PLIST_SUBST+=	SYSTEM=bsd
 .else
-PLIST_SUBST+=	SYSTEM=${LOWER_OPSYS}
+PLIST_SUBST+=	SYSTEM=${OPSYS:tl}
 .endif
 
 .include "../../lang/python/application.mk"

@@ -1,4 +1,4 @@
-# $NetBSD: options.mk,v 1.44 2015/09/27 21:58:03 tnn Exp $
+# $NetBSD: options.mk,v 1.47 2016/01/18 19:27:45 jperkin Exp $
 
 PKG_OPTIONS_VAR=		PKG_OPTIONS.MesaLib
 PKG_SUPPORTED_OPTIONS=		llvm dri
@@ -35,16 +35,15 @@ PLIST_VARS+=		swrast svga ilo i915 i965 nouveau r300 r600 radeonsi
 # classic DRI
 PLIST_VARS+=		dri swrast_dri i915_dri nouveau_dri i965_dri radeon_dri r200_dri
 # other features
-PLIST_VARS+=		gbm xatracker
+PLIST_VARS+=		gbm wayland xatracker
 
 .if !empty(PKG_OPTIONS:Mdri)
 
 CONFIGURE_ARGS+=	--enable-dri
-CONFIGURE_ARGS+=	--enable-dri2
-CONFIGURE_ARGS+=	--enable-dri3
-CFLAGS+=		-DHAVE_DRI3
 CONFIGURE_ARGS+=	--enable-egl
 .if ${OPSYS} != "Darwin"
+CFLAGS+=		-DHAVE_DRI3
+CONFIGURE_ARGS+=	--enable-dri3
 CONFIGURE_ARGS+=	--enable-gbm
 PLIST.gbm=		yes
 .endif
@@ -143,6 +142,10 @@ DRI_DRIVERS+=		nouveau
 
 .if ${OPSYS} == "Darwin"
 CONFIGURE_ARGS+=	--with-egl-platforms=x11
+#.elif ${OPSYS} == "Linux"
+#.include "../../wip/wayland/buildlink3.mk"
+#CONFIGURE_ARGS+=	--with-egl-platforms=x11,drm,wayland
+#PLIST.wayland=		yes
 .else
 CONFIGURE_ARGS+=	--with-egl-platforms=x11,drm
 .endif

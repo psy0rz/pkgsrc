@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.654 2015/12/13 15:19:03 taca Exp $
+# $NetBSD: Makefile,v 1.658 2015/12/30 14:23:22 leot Exp $
 #
 
 COMMENT=	System utilities
@@ -412,20 +412,23 @@ SUBDIR+=	pv
 SUBDIR+=	pwgen
 SUBDIR+=	py-attic
 SUBDIR+=	py-augeas
-SUBDIR+=	py-borg
+SUBDIR+=	py-borgbackup
 SUBDIR+=	py-collectd
 SUBDIR+=	py-dbus
+SUBDIR+=	py-diffoscope
 SUBDIR+=	py-gnome-menus
 SUBDIR+=	py-kazoo
 SUBDIR+=	py-magic
 SUBDIR+=	py-notify
 SUBDIR+=	py-notify-python
+SUBDIR+=	py-pathtools
 SUBDIR+=	py-pefile
 SUBDIR+=	py-psutil
 SUBDIR+=	py-setconf
 SUBDIR+=	py-setproctitle
 SUBDIR+=	py-structlog
 SUBDIR+=	py-syslog-ng
+SUBDIR+=	py-watchdog
 SUBDIR+=	py-xattr
 SUBDIR+=	qlogtools
 SUBDIR+=	radeontool

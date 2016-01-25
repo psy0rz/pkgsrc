@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.50 2015/11/27 13:52:50 wiz Exp $
+@comment $NetBSD: PLIST,v 1.52 2016/01/15 10:39:44 wiz Exp $
 bin/calibre
 bin/calibre-complete
 bin/calibre-customize
@@ -64,9 +64,6 @@ lib/calibre/calibre/devices/android/driver.py
 lib/calibre/calibre/devices/apple/__init__.py
 lib/calibre/calibre/devices/apple/driver.py
 lib/calibre/calibre/devices/apple/itunes.py
-lib/calibre/calibre/devices/bambook/__init__.py
-lib/calibre/calibre/devices/bambook/driver.py
-lib/calibre/calibre/devices/bambook/libbambookcore.py
 lib/calibre/calibre/devices/binatone/__init__.py
 lib/calibre/calibre/devices/binatone/driver.py
 lib/calibre/calibre/devices/blackberry/__init__.py
@@ -450,6 +447,7 @@ lib/calibre/calibre/ebooks/oeb/polish/css.py
 lib/calibre/calibre/ebooks/oeb/polish/embed.py
 lib/calibre/calibre/ebooks/oeb/polish/errors.py
 lib/calibre/calibre/ebooks/oeb/polish/fonts.py
+lib/calibre/calibre/ebooks/oeb/polish/images.py
 lib/calibre/calibre/ebooks/oeb/polish/import_book.py
 lib/calibre/calibre/ebooks/oeb/polish/jacket.py
 lib/calibre/calibre/ebooks/oeb/polish/main.py
@@ -800,6 +798,7 @@ lib/calibre/calibre/gui2/dialogs/drm_error_ui.py
 lib/calibre/calibre/gui2/dialogs/duplicates.py
 lib/calibre/calibre/gui2/dialogs/edit_authors_dialog.py
 lib/calibre/calibre/gui2/dialogs/edit_authors_dialog_ui.py
+lib/calibre/calibre/gui2/dialogs/exim.py
 lib/calibre/calibre/gui2/dialogs/job_view_ui.py
 lib/calibre/calibre/gui2/dialogs/jobs_ui.py
 lib/calibre/calibre/gui2/dialogs/match_books.py
@@ -958,10 +957,12 @@ lib/calibre/calibre/gui2/store/search/search.py
 lib/calibre/calibre/gui2/store/search/search_ui.py
 lib/calibre/calibre/gui2/store/search_result.py
 lib/calibre/calibre/gui2/store/stores/__init__.py
+lib/calibre/calibre/gui2/store/stores/amazon_au_plugin.py
 lib/calibre/calibre/gui2/store/stores/amazon_ca_plugin.py
 lib/calibre/calibre/gui2/store/stores/amazon_de_plugin.py
 lib/calibre/calibre/gui2/store/stores/amazon_es_plugin.py
 lib/calibre/calibre/gui2/store/stores/amazon_fr_plugin.py
+lib/calibre/calibre/gui2/store/stores/amazon_in_plugin.py
 lib/calibre/calibre/gui2/store/stores/amazon_it_plugin.py
 lib/calibre/calibre/gui2/store/stores/amazon_plugin.py
 lib/calibre/calibre/gui2/store/stores/amazon_uk_plugin.py
@@ -1137,7 +1138,6 @@ lib/calibre/calibre/library/custom_columns.py
 lib/calibre/calibre/library/database.py
 lib/calibre/calibre/library/database2.py
 lib/calibre/calibre/library/field_metadata.py
-lib/calibre/calibre/library/move.py
 lib/calibre/calibre/library/prefs.py
 lib/calibre/calibre/library/restore.py
 lib/calibre/calibre/library/save_to_disk.py
@@ -1156,7 +1156,6 @@ lib/calibre/calibre/library/server/xml.py
 lib/calibre/calibre/library/sqlite.py
 lib/calibre/calibre/library/test.py
 lib/calibre/calibre/libunzip.py
-lib/calibre/calibre/libwand.py
 lib/calibre/calibre/linux.py
 lib/calibre/calibre/plugins/_patiencediff_c.so
 lib/calibre/calibre/plugins/_regex.so
@@ -1244,6 +1243,7 @@ lib/calibre/calibre/utils/config.py
 lib/calibre/calibre/utils/config_base.py
 lib/calibre/calibre/utils/date.py
 lib/calibre/calibre/utils/dbus_service.py
+lib/calibre/calibre/utils/exim.py
 lib/calibre/calibre/utils/file_associations.py
 lib/calibre/calibre/utils/file_type_icons.py
 lib/calibre/calibre/utils/filenames.py
@@ -1280,6 +1280,7 @@ lib/calibre/calibre/utils/icu_test.py
 lib/calibre/calibre/utils/img.py
 lib/calibre/calibre/utils/imghdr.py
 lib/calibre/calibre/utils/inotify.py
+lib/calibre/calibre/utils/ip_routing.py
 lib/calibre/calibre/utils/ipc/__init__.py
 lib/calibre/calibre/utils/ipc/job.py
 lib/calibre/calibre/utils/ipc/launch.py
@@ -1288,6 +1289,7 @@ lib/calibre/calibre/utils/ipc/proxy.py
 lib/calibre/calibre/utils/ipc/server.py
 lib/calibre/calibre/utils/ipc/simple_worker.py
 lib/calibre/calibre/utils/ipc/worker.py
+lib/calibre/calibre/utils/iphlpapi.py
 lib/calibre/calibre/utils/ipython.py
 lib/calibre/calibre/utils/linux_trash.py
 lib/calibre/calibre/utils/localization.py
@@ -1313,7 +1315,6 @@ lib/calibre/calibre/utils/opensearch/description.py
 lib/calibre/calibre/utils/opensearch/query.py
 lib/calibre/calibre/utils/opensearch/url.py
 lib/calibre/calibre/utils/ordered_dict.py
-lib/calibre/calibre/utils/pdftk.py
 lib/calibre/calibre/utils/podofo/__init__.py
 lib/calibre/calibre/utils/pyconsole/__init__.py
 lib/calibre/calibre/utils/pyconsole/console.py
@@ -1571,6 +1572,7 @@ share/calibre/images/character-set.png
 share/calibre/images/clear_left.png
 share/calibre/images/code.png
 share/calibre/images/column.png
+share/calibre/images/compress-image.png
 share/calibre/images/config.png
 share/calibre/images/connect_share.png
 share/calibre/images/connect_share_on.png
@@ -2118,7 +2120,6 @@ share/calibre/recipes/diario_el_pueblo.recipe
 share/calibre/recipes/diario_extra.recipe
 share/calibre/recipes/diario_ibiza.recipe
 share/calibre/recipes/diario_la_republica.recipe
-share/calibre/recipes/diario_salto.recipe
 share/calibre/recipes/diario_sport.recipe
 share/calibre/recipes/diariovasco.recipe
 share/calibre/recipes/diepresse.recipe
@@ -2575,7 +2576,6 @@ share/calibre/recipes/kyungyhang.recipe
 share/calibre/recipes/l_espresso.recipe
 share/calibre/recipes/l_vivs_ghazieta.recipe
 share/calibre/recipes/la_cuarta.recipe
-share/calibre/recipes/la_diaria.recipe
 share/calibre/recipes/la_gazetta_del_mezzogiorno.recipe
 share/calibre/recipes/la_gazzeta_dello_sport.recipe
 share/calibre/recipes/la_jornada.recipe
@@ -2655,6 +2655,7 @@ share/calibre/recipes/london_free_press.recipe
 share/calibre/recipes/los_tiempos_bo.recipe
 share/calibre/recipes/losandes.recipe
 share/calibre/recipes/losservatoreromano_it.recipe
+share/calibre/recipes/lr21.recipe
 share/calibre/recipes/lrb.recipe
 share/calibre/recipes/lrb_payed.recipe
 share/calibre/recipes/ludwig_mises.recipe
@@ -3271,7 +3272,6 @@ share/calibre/recipes/unica.recipe
 share/calibre/recipes/uninohimitu.recipe
 share/calibre/recipes/united_daily.recipe
 share/calibre/recipes/universe_today.recipe
-share/calibre/recipes/unoticias.recipe
 share/calibre/recipes/unperiodico.recipe
 share/calibre/recipes/upi.recipe
 share/calibre/recipes/usatoday.recipe
@@ -3395,10 +3395,19 @@ share/calibre/viewer/hyphenation.js
 share/calibre/viewer/images.js
 share/calibre/viewer/jquery_scrollTo.js
 share/calibre/viewer/mathjax/MathJax.js
+share/calibre/viewer/mathjax/extensions/AssistiveMML.js
+share/calibre/viewer/mathjax/extensions/CHTML-preview.js
 share/calibre/viewer/mathjax/extensions/FontWarnings.js
+share/calibre/viewer/mathjax/extensions/HTML-CSS/handle-floats.js
+share/calibre/viewer/mathjax/extensions/HelpDialog.js
+share/calibre/viewer/mathjax/extensions/MatchWebFonts.js
 share/calibre/viewer/mathjax/extensions/MathEvents.js
+share/calibre/viewer/mathjax/extensions/MathML/content-mathml.js
+share/calibre/viewer/mathjax/extensions/MathML/mml3.js
 share/calibre/viewer/mathjax/extensions/MathMenu.js
 share/calibre/viewer/mathjax/extensions/MathZoom.js
+share/calibre/viewer/mathjax/extensions/Safe.js
+share/calibre/viewer/mathjax/extensions/TeX/AMScd.js
 share/calibre/viewer/mathjax/extensions/TeX/AMSmath.js
 share/calibre/viewer/mathjax/extensions/TeX/AMSsymbols.js
 share/calibre/viewer/mathjax/extensions/TeX/HTML.js
@@ -3413,6 +3422,7 @@ share/calibre/viewer/mathjax/extensions/TeX/color.js
 share/calibre/viewer/mathjax/extensions/TeX/enclose.js
 share/calibre/viewer/mathjax/extensions/TeX/extpfeil.js
 share/calibre/viewer/mathjax/extensions/TeX/mathchoice.js
+share/calibre/viewer/mathjax/extensions/TeX/mediawiki-texvc.js
 share/calibre/viewer/mathjax/extensions/TeX/mhchem.js
 share/calibre/viewer/mathjax/extensions/TeX/newcommand.js
 share/calibre/viewer/mathjax/extensions/TeX/noErrors.js
@@ -3420,6 +3430,7 @@ share/calibre/viewer/mathjax/extensions/TeX/noUndefined.js
 share/calibre/viewer/mathjax/extensions/TeX/unicode.js
 share/calibre/viewer/mathjax/extensions/TeX/verb.js
 share/calibre/viewer/mathjax/extensions/asciimath2jax.js
+share/calibre/viewer/mathjax/extensions/fast-preview.js
 share/calibre/viewer/mathjax/extensions/jsMath2jax.js
 share/calibre/viewer/mathjax/extensions/mml2jax.js
 share/calibre/viewer/mathjax/extensions/tex2jax.js

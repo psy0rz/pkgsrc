@@ -509,13 +509,13 @@ packages for himself, which is a time-costly task.</p>
 <p>pkgsrc currently contains several thousand packages,
       including:</p>
 <div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; ">
-<li class="listitem"><p><a href="ftp://ftp.NetBSD.org/pub/pkgsrc/current/pkgsrc/www/apache/README.html" target="_top"><code class="filename">www/apache</code></a> - The Apache
+<li class="listitem"><p><a href="ftp://ftp.NetBSD.org/pub/pkgsrc/current/pkgsrc/www/apache24/README.html" target="_top"><code class="filename">www/apache24</code></a> - The Apache
 	  web server</p></li>
 <li class="listitem"><p><a href="ftp://ftp.NetBSD.org/pub/pkgsrc/current/pkgsrc/www/firefox/README.html" target="_top"><code class="filename">www/firefox</code></a> - The Firefox
 	  web browser</p></li>
 <li class="listitem"><p><a href="ftp://ftp.NetBSD.org/pub/pkgsrc/current/pkgsrc/meta-pkgs/gnome/README.html" target="_top"><code class="filename">meta-pkgs/gnome</code></a> - The GNOME
 	  Desktop Environment</p></li>
-<li class="listitem"><p><a href="ftp://ftp.NetBSD.org/pub/pkgsrc/current/pkgsrc/meta-pkgs/kde3/README.html" target="_top"><code class="filename">meta-pkgs/kde3</code></a> - The K
+<li class="listitem"><p><a href="ftp://ftp.NetBSD.org/pub/pkgsrc/current/pkgsrc/meta-pkgs/kde4/README.html" target="_top"><code class="filename">meta-pkgs/kde4</code></a> - The K
 	  Desktop Environment</p></li>
 </ul></div>
 <p>...just to name a few.</p>
@@ -538,10 +538,10 @@ pkgsrc provides the following key features:
 <li class="listitem"><p>All packages are installed in a consistent directory tree,
   including binaries, libraries, man pages and other
   documentation.</p></li>
-<li class="listitem"><p>Package dependencies, including when performing package updates,
-  are handled automatically. The configuration files of various
-  packages are handled automatically during updates, so local changes
-  are preserved.</p></li>
+<li class="listitem"><p>Tracking of package dependencies automatically, including when
+  performing updates, to ensure required packages are installed. The
+  configuration files of various packages are handled automatically during
+  updates, so local changes are preserved.</p></li>
 <li class="listitem"><p>Like NetBSD, pkgsrc is designed with portability in mind and
   consists of highly portable code. This allows the greatest speed of
   development when porting to a new platform. This portability also
@@ -694,6 +694,11 @@ minutes!</p>
 <td><a class="ulink" href="http://www.debian.org/ports/kfreebsd-gnu/" target="_top">GNU/kFreeBSD</a></td>
 <td align="center">Jul 2013</td>
 <td><a class="ulink" href="http://ftp.NetBSD.org/pub/pkgsrc/current/pkgsrc/bootstrap/README.GNUkFreeBSD" target="_top">README.GNUkFreeBSD</a></td>
+</tr>
+<tr>
+<td><a class="ulink" href="http://www.bitrig.org/" target="_top">Bitrig</a></td>
+<td align="center">Jun 2014</td>
+<td><a class="ulink" href="http://ftp.NetBSD.org/pub/pkgsrc/current/pkgsrc/bootstrap/README.Bitrig" target="_top">README.Bitrig</a></td>
 </tr>
 </tbody>
 </table></div>
@@ -1207,7 +1212,7 @@ release -d
 <div class="sect2">
 <div class="titlepage"><div><div><h3 class="title">
 <a name="darwin"></a>3.3.2. Darwin (Mac OS X)</h3></div></div></div>
-<p>Darwin 5.x and up are supported.</p>
+<p>Darwin 8.x and up are supported.</p>
 <p>Before you start, you need to download and install
       the Mac OS X Developer Tools from Apple's Developer Connection.
       This requires (free) membership. See
@@ -3685,9 +3690,22 @@ that are not supported, e.g.
 PYTHON_VERSIONS_INCOMPATIBLE=       27
 </pre>
 <p>
-If the packaged software is a Python module, include
-<span class="quote">&#8220;<span class="quote"><code class="filename">../../lang/python/extension.mk</code></span>&#8221;</span>.
-In this case, the package directory should be called
+If the packaged software is a Python module, include one of
+<code class="filename">../../lang/python/egg.mk</code>,
+<code class="filename">../../lang/python/distutils.mk</code>, or
+<code class="filename">../../lang/python/extension.mk</code>.</p>
+<p>Most Python packages use either <span class="quote">&#8220;<span class="quote">distutils</span>&#8221;</span> or
+easy-setup/setuptools (<span class="quote">&#8220;<span class="quote">eggs</span>&#8221;</span>).
+if the packaged software is using setuptools, you only need
+to include <span class="quote">&#8220;<span class="quote"><code class="filename">../../lang/python/egg.mk</code></span>&#8221;</span>.
+Otherwise, if the software uses <span class="quote">&#8220;<span class="quote">distutils</span>&#8221;</span>, include 
+<span class="quote">&#8220;<span class="quote"><code class="filename">../../lang/python/distutils.mk</code></span>&#8221;</span>.
+so pkgsrc will use this framework.
+<span class="quote">&#8220;<span class="quote">distutils</span>&#8221;</span> uses a script called <code class="filename">setup.py</code>,
+if the <span class="quote">&#8220;<span class="quote">distutils</span>&#8221;</span> driver is not called
+<code class="filename">setup.py</code>, set the <code class="varname">PYSETUP</code> variable
+to the name of the script.</p>
+<p>Either way, the package directory should be called
 <span class="quote">&#8220;<span class="quote">py-software</span>&#8221;</span> and <code class="varname">PKGNAME</code> should be set to
 <span class="quote">&#8220;<span class="quote">${PYPKGPREFIX}-${DISTNAME}</span>&#8221;</span>, e.g.
 </p>
@@ -3705,18 +3723,6 @@ For example:
 <pre class="programlisting">
 REPLACE_PYTHON=   *.py
 </pre>
-<p>Most Python packages use either <span class="quote">&#8220;<span class="quote">distutils</span>&#8221;</span> or
-easy-setup (<span class="quote">&#8220;<span class="quote">eggs</span>&#8221;</span>).
-If the software uses <span class="quote">&#8220;<span class="quote">distutils</span>&#8221;</span>, include 
-<span class="quote">&#8220;<span class="quote"><code class="filename">../../lang/python/distutils.mk</code></span>&#8221;</span>.
-so pkgsrc will use this framework.
-<span class="quote">&#8220;<span class="quote">distutils</span>&#8221;</span> uses a script called <code class="filename">setup.py</code>,
-if the <span class="quote">&#8220;<span class="quote">distutils</span>&#8221;</span> driver is not called
-<code class="filename">setup.py</code>, set the <code class="varname">PYSETUP</code> variable
-to the name of the script.</p>
-<p>Otherwise, if the packaged software is egg-aware, you only need
-to include
-<span class="quote">&#8220;<span class="quote"><code class="filename">../../lang/python/egg.mk</code></span>&#8221;</span>.</p>
 <p>Some Python modules have separate distributions for Python-2.x
 and Python-3.x support. In pkgsrc this is handled by the
 <code class="filename">versioned_dependencies.mk</code> file. Set
@@ -7353,7 +7359,7 @@ TOOLS_PLATFORM.true?=           true                    # shell builtin
 <div class="titlepage"><div><div><h2 class="title" style="clear: both">
 <a name="tools.questions"></a>18.4. Questions regarding the tools</h2></div></div></div>
 <div class="qandaset">
-<a name="idm79382608"></a><dl>
+<a name="idp2089748084"></a><dl>
 <dt>18.4.1. <a href="#tools.new">How do I add a new tool?</a>
 </dt>
 <dt>18.4.2. <a href="#tools.listall">How do I get a list of all available
@@ -7372,7 +7378,7 @@ TOOLS_PLATFORM.true?=           true                    # shell builtin
 <tbody>
 <tr class="question">
 <td align="left" valign="top">
-<a name="tools.new"></a><a name="idm79382224"></a><p><b>18.4.1.</b></p>
+<a name="tools.new"></a><a name="idp2089747748"></a><p><b>18.4.1.</b></p>
 </td>
 <td align="left" valign="top"><p>How do I add a new tool?</p></td>
 </tr>
@@ -7382,7 +7388,7 @@ TOOLS_PLATFORM.true?=           true                    # shell builtin
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="tools.listall"></a><a name="idm79381200"></a><p><b>18.4.2.</b></p>
+<a name="tools.listall"></a><a name="idp2089747044"></a><p><b>18.4.2.</b></p>
 </td>
 <td align="left" valign="top"><p>How do I get a list of all available
 	tools?</p></td>
@@ -7393,7 +7399,7 @@ TOOLS_PLATFORM.true?=           true                    # shell builtin
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="tools.used"></a><a name="idm79380176"></a><p><b>18.4.3.</b></p>
+<a name="tools.used"></a><a name="idp2089746324"></a><p><b>18.4.3.</b></p>
 </td>
 <td align="left" valign="top"><p>How can I get a list of all the tools that a
 	package is using while being built? I want to know whether it
@@ -9554,7 +9560,7 @@ place.</p></li>
 	and if you still don't have the answer, ask on the
 	<code class="literal">pkgsrc-users</code> mailing list.</p>
 <div class="qandaset">
-<a name="idm80911696"></a><dl>
+<a name="idp2091429044"></a><dl>
 <dt>22.1. <a href="#devfaq.makeflags">What is the difference between
 	MAKEFLAGS, .MAKEFLAGS and
 	MAKE_FLAGS?</a>
@@ -9599,7 +9605,7 @@ do?</a>
 <tbody>
 <tr class="question">
 <td align="left" valign="top">
-<a name="devfaq.makeflags"></a><a name="idm80911312"></a><p><b>22.1.</b></p>
+<a name="devfaq.makeflags"></a><a name="idp2091427972"></a><p><b>22.1.</b></p>
 </td>
 <td align="left" valign="top"><p>What is the difference between
 	<code class="varname">MAKEFLAGS</code>, <code class="varname">.MAKEFLAGS</code> and
@@ -9615,7 +9621,7 @@ do?</a>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="devfaq.make"></a><a name="idm80907344"></a><p><b>22.2.</b></p>
+<a name="devfaq.make"></a><a name="idp2091431876"></a><p><b>22.2.</b></p>
 </td>
 <td align="left" valign="top"><p>What is the difference between
 	<code class="varname">MAKE</code>, <code class="varname">GMAKE</code> and
@@ -9633,7 +9639,7 @@ do?</a>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="devfaq.cc"></a><a name="idm80902864"></a><p><b>22.3.</b></p>
+<a name="devfaq.cc"></a><a name="idp2091434644"></a><p><b>22.3.</b></p>
 </td>
 <td align="left" valign="top"><p>What is the difference between
 	<code class="varname">CC</code>, <code class="varname">PKG_CC</code> and
@@ -9651,7 +9657,7 @@ do?</a>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="devfaq.bl3flags"></a><a name="idm80898768"></a><p><b>22.4.</b></p>
+<a name="devfaq.bl3flags"></a><a name="idp2091437380"></a><p><b>22.4.</b></p>
 </td>
 <td align="left" valign="top"><p>What is the difference between
 	<code class="varname">BUILDLINK_LDFLAGS</code>,
@@ -9664,7 +9670,7 @@ do?</a>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="devfaq.bl3prefix"></a><a name="idm80896592"></a><p><b>22.5.</b></p>
+<a name="devfaq.bl3prefix"></a><a name="idp2091438804"></a><p><b>22.5.</b></p>
 </td>
 <td align="left" valign="top"><p>Why does <span class="command"><strong>make show-var
 	VARNAME=BUILDLINK_PREFIX.<em class="replaceable"><code>foo</code></em></strong></span>
@@ -9680,7 +9686,7 @@ do?</a>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="devfaq.master_sites"></a><a name="idm80893392"></a><p><b>22.6.</b></p>
+<a name="devfaq.master_sites"></a><a name="idp2091440980"></a><p><b>22.6.</b></p>
 </td>
 <td align="left" valign="top"><p>What does
 	<code class="literal">${MASTER_SITE_SOURCEFORGE:=package/}</code> mean? I
@@ -9704,7 +9710,7 @@ do?</a>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="devfaq.mailinglists"></a><a name="idm80885328"></a><p><b>22.7.</b></p>
+<a name="devfaq.mailinglists"></a><a name="idp2091446276"></a><p><b>22.7.</b></p>
 </td>
 <td align="left" valign="top"><p>Which mailing lists are there for package
 	developers?</p></td>
@@ -9729,7 +9735,7 @@ do?</a>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="devfaq.documentation"></a><a name="idm80881616"></a><p><b>22.8.</b></p>
+<a name="devfaq.documentation"></a><a name="idp2091449204"></a><p><b>22.8.</b></p>
 </td>
 <td align="left" valign="top"><p>Where is the pkgsrc
 	documentation?</p></td>
@@ -9777,7 +9783,7 @@ do?</a>
 </tr>
 <tr class="question">
 <td align="left" valign="top">
-<a name="devfaq.too-much-time"></a><a name="idm80875088"></a><p><b>22.9.</b></p>
+<a name="devfaq.too-much-time"></a><a name="idp2091454564"></a><p><b>22.9.</b></p>
 </td>
 <td align="left" valign="top"><p>I have a little time to kill.  What shall I
 do?</p></td>

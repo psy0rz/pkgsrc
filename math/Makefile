@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.310 2015/11/28 07:35:01 wen Exp $
+# $NetBSD: Makefile,v 1.316 2016/01/22 14:59:09 gson Exp $
 
 COMMENT=	Mathematics
 
@@ -8,6 +8,7 @@ SUBDIR+=	R-DAAG
 SUBDIR+=	R-DBI
 SUBDIR+=	R-GRASS
 SUBDIR+=	R-ISwR
+SUBDIR+=	R-MatrixModels
 SUBDIR+=	R-PHYLOGR
 SUBDIR+=	R-R2HTML
 SUBDIR+=	R-RArcInfo
@@ -15,6 +16,7 @@ SUBDIR+=	R-RColorBrewer
 SUBDIR+=	R-RPostgreSQL
 SUBDIR+=	R-RandomFields
 SUBDIR+=	R-Rcmdr
+SUBDIR+=	R-SparseM
 SUBDIR+=	R-XML
 SUBDIR+=	R-abind
 SUBDIR+=	R-akima
@@ -44,6 +46,7 @@ SUBDIR+=	R-mvtnorm
 SUBDIR+=	R-ncdf
 SUBDIR+=	R-pixmap
 SUBDIR+=	R-plyr
+SUBDIR+=	R-quantreg
 SUBDIR+=	R-randomForest
 SUBDIR+=	R-sgeostat
 SUBDIR+=	R-shapefiles
@@ -90,6 +93,7 @@ SUBDIR+=	eukleides10
 SUBDIR+=	euler
 SUBDIR+=	extcalc
 SUBDIR+=	fftpack
+SUBDIR+=	ffts
 SUBDIR+=	fftw
 SUBDIR+=	fftw2
 SUBDIR+=	fftwf
@@ -213,6 +217,7 @@ SUBDIR+=	p5-Statistics-TTest
 SUBDIR+=	p5-Test-Number-Delta
 SUBDIR+=	pari
 SUBDIR+=	pari-galdata
+SUBDIR+=	pcg
 SUBDIR+=	pear-Math_BigInteger
 SUBDIR+=	pear-Numbers_Roman
 SUBDIR+=	pear-Numbers_Words
@@ -256,6 +261,7 @@ SUBDIR+=	quadpack
 SUBDIR+=	randlib
 SUBDIR+=	ruby-gsl
 SUBDIR+=	ruby-narray
+SUBDIR+=	ruby-roo
 SUBDIR+=	ruby-spreadsheet
 SUBDIR+=	sc
 SUBDIR+=	scilab

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.566 2015/12/11 13:43:36 wiz Exp $
+# $NetBSD: Makefile,v 1.570 2016/01/05 01:15:41 sevan Exp $
 #
 
 COMMENT=	Security tools
@@ -29,6 +29,7 @@ SUBDIR+=	base
 SUBDIR+=	bcrypt
 SUBDIR+=	beecrypt
 SUBDIR+=	bitstir
+SUBDIR+=	boringssl
 SUBDIR+=	botan
 SUBDIR+=	botan-devel
 SUBDIR+=	caff
@@ -94,6 +95,7 @@ SUBDIR+=	gnupg-pkcs11-scd
 SUBDIR+=	gnupg2
 SUBDIR+=	gnupg21
 SUBDIR+=	gnutls
+SUBDIR+=	go-crypto
 SUBDIR+=	go-oauth2
 SUBDIR+=	google-authenticator
 SUBDIR+=	gpa
@@ -164,6 +166,7 @@ SUBDIR+=	libpreludedb-perl
 SUBDIR+=	libpreludedb-pgsql
 SUBDIR+=	libpreludedb-python
 SUBDIR+=	libpreludedb-sqlite3
+SUBDIR+=	libressl
 SUBDIR+=	libsecret
 SUBDIR+=	libsodium
 SUBDIR+=	libssh
@@ -394,6 +397,7 @@ SUBDIR+=	py-pydeep
 SUBDIR+=	py-requests-oauthlib
 SUBDIR+=	py-rsa
 SUBDIR+=	py-service_identity
+SUBDIR+=	py-simplesha3
 SUBDIR+=	py-smbpasswd
 SUBDIR+=	py-stix
 SUBDIR+=	py-tlslite

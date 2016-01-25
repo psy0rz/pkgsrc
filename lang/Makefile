@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.423 2015/12/06 15:18:48 taca Exp $
+# $NetBSD: Makefile,v 1.426 2016/01/18 07:54:50 agc Exp $
 #
 
 COMMENT=	Programming languages
@@ -121,6 +121,7 @@ SUBDIR+=	lush
 SUBDIR+=	maude
 SUBDIR+=	mawk
 SUBDIR+=	mercury
+SUBDIR+=	micropython
 SUBDIR+=	minischeme
 SUBDIR+=	mit-scheme-bin
 SUBDIR+=	mono
@@ -198,6 +199,8 @@ SUBDIR+=	ruby21
 SUBDIR+=	ruby21-base
 SUBDIR+=	ruby22
 SUBDIR+=	ruby22-base
+SUBDIR+=	ruby23
+SUBDIR+=	ruby23-base
 SUBDIR+=	runawk
 SUBDIR+=	sablevm
 SUBDIR+=	sablevm-classpath

@@ -1,9 +1,8 @@
-# $NetBSD: Makefile,v 1.18 2015/10/10 01:57:54 ryoon Exp $
+# $NetBSD: Makefile,v 1.21 2016/01/04 14:46:37 leot Exp $
 
-DISTNAME=	libsoup-2.50.0
-PKGREVISION=	1
+DISTNAME=	libsoup-2.52.2
 CATEGORIES=	net gnome
-MASTER_SITES=	${MASTER_SITE_GNOME:=sources/libsoup/2.50/}
+MASTER_SITES=	${MASTER_SITE_GNOME:=sources/libsoup/2.52/}
 EXTRACT_SUFX=	.tar.xz
 
 MAINTAINER=	pkgsrc-users@NetBSD.org
@@ -18,13 +17,16 @@ GNU_CONFIGURE=		yes
 # XXX work around botched gettext check (ignores libintl)
 CONFIGURE_ENV+=		DATADIRNAME=share
 
+# XXX: disable Vala bindings otherwise the configure phase fails because is not
+# XXX: able to find vapigen.
+CONFIGURE_ARGS+=	--enable-vala=no
+
 DEPENDS+=	glib-networking-[0-9]*:../../net/glib-networking
 
 PKGCONFIG_OVERRIDE+=	libsoup-2.4.pc.in
+PKGCONFIG_OVERRIDE+=	libsoup-gnome-2.4.pc.in
 
 TEST_TARGET=	check
-
-.include "options.mk"
 
 # gcc>=4.2 specific -Werror=XXX flags will be added unconditionally.
 .include "../../mk/compiler.mk"
@@ -42,7 +44,7 @@ PYTHON_FOR_BUILD_ONLY= yes
 .include "../../lang/python/application.mk"
 
 .include "../../databases/sqlite3/buildlink3.mk"
-BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.31.7
+BUILDLINK_API_DEPENDS.glib2+=	glib2>=2.38.0
 .include "../../devel/glib2/buildlink3.mk"
 BUILDLINK_API_DEPENDS.gobject-introspection+=	gobject-introspection>=0.9.5
 BUILDLINK_DEPMETHOD.gobject-introspection+=	build

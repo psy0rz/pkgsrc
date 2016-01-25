@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.35 2015/12/10 20:04:54 bsiegert Exp $
+# $NetBSD: Makefile,v 1.37 2016/01/16 09:43:44 fhajny Exp $
 
 .include "version.mk"
 
@@ -16,7 +16,7 @@ WRKSRC=		${WRKDIR}/go
 USE_TOOLS+=	bash:run perl:run pax
 
 # uses ulimit -T
-BUILD_DEPENDS+=	bash>=4.2nb3:../../shells/bash
+# BUILD_DEPENDS+=	bash>=4.2nb3:../../shells/bash
 
 # cgo compiles under TMPDIR
 TMPDIR?=	/tmp

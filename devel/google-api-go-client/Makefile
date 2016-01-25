@@ -1,13 +1,13 @@
-# $NetBSD: Makefile,v 1.2 2015/09/13 14:34:25 bsiegert Exp $
+# $NetBSD: Makefile,v 1.4 2016/01/18 15:33:44 fhajny Exp $
 #
 
 DISTNAME=		google-api-go-client
-PKGNAME=		google-api-go-client-20150507
+PKGNAME=		google-api-go-client-20151217
 PKGREVISION=		1
 CATEGORIES=		devel
 MASTER_SITES=		${MASTER_SITE_GITHUB:=google/}
 GITHUB_PROJECT=		${DISTNAME}
-GITHUB_TAG=		0297be7525
+GITHUB_TAG=		dc6d2353af
 
 MAINTAINER=		bsiegert@NetBSD.org
 HOMEPAGE=		http://google.golang.org/api/

@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.461 2015/11/04 14:07:27 fhajny Exp $
+# $NetBSD: Makefile,v 1.465 2016/01/10 11:52:05 tsutsui Exp $
 #
 
 COMMENT=	Miscellaneous utilities
@@ -178,6 +178,7 @@ SUBDIR+=	libreoffice
 SUBDIR+=	libreoffice4
 SUBDIR+=	libreoffice4-bin
 SUBDIR+=	libreoffice43
+SUBDIR+=	libreoffice5-bin
 SUBDIR+=	libutf
 SUBDIR+=	lile
 SUBDIR+=	linux-words
@@ -285,6 +286,7 @@ SUBDIR+=	ruby-launchy
 SUBDIR+=	ruby-memoizable
 SUBDIR+=	ruby-method_source
 SUBDIR+=	ruby-mini_portile
+SUBDIR+=	ruby-mini_portile2
 SUBDIR+=	ruby-naught
 SUBDIR+=	ruby-ohai
 SUBDIR+=	ruby-parallel

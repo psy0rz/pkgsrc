@@ -1,9 +1,9 @@
-# $NetBSD: Makefile,v 1.3 2015/09/13 14:34:25 bsiegert Exp $
+# $NetBSD: Makefile,v 1.5 2016/01/18 15:33:44 fhajny Exp $
 #
 
 DISTNAME=		gcloud-golang
 PKGNAME=		gcloud-golang-metadata-20150310
-PKGREVISION=		1
+PKGREVISION=		2
 GITHUB_PROJECT=		${DISTNAME}
 CATEGORIES=		net
 MASTER_SITES=		${MASTER_SITE_GITHUB:=GoogleCloudPlatform/}
@@ -20,10 +20,10 @@ GO_DIST_BASE=		${DISTNAME}-${GITHUB_TAG}*
 
 # Remove all code except compute/metadata and internal
 pre-patch:
-	for i in ${WRKSRC}/*; do \
+	cd ${WRKSRC} && for i in *; do \
 		case $$i in \
 		c*|i*) ;; \
-		default) ${RM} -fr $$i ;; \
+		*) ${RM} -fr $$i ;; \
 		esac; \
 		done
 	${RM} -fr ${WRKSRC}/cloud*go

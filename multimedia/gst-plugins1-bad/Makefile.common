@@ -1,18 +1,19 @@
-# $NetBSD: Makefile.common,v 1.14 2015/11/18 12:04:16 wiz Exp $
+# $NetBSD: Makefile.common,v 1.17 2016/01/24 14:44:39 ryoon Exp $
 #
 # used by audio/gst-plugins1-dts/Makefile
 # used by audio/gst-plugins1-faac/Makefile
 # used by audio/gst-plugins1-faad/Makefile
+# used by audio/gst-plugins1-soundtouch/Makefile
+# used by audio/gst-plugins1-spc/Makefile
 # used by net/gst-plugins1-mms/Makefile
 # used by net/gst-plugins1-rtmp/Makefile
-# used by audio/gst-plugins1-spc/Makefile
 # used by multimedia/gst-plugins1-resindvd/Makefile
 ## used by multimedia/gst-plugins1-xvid/Makefile (broken)
 ## used by audio/gst-plugins1-musepack/Makefile (probably newer libmusepack or libmpcdec is needed)
 #
 
 GST_PLUGINS1_TYPE=	bad
-GST_PLUGINS1_VER=	1.6.1
+GST_PLUGINS1_VER=	1.6.3
 
 # Disable all drivers and features by default.
 .for driver in	\

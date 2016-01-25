@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.35 2014/05/03 13:14:39 alnsn Exp $
+# $NetBSD: Makefile,v 1.37 2016/01/24 16:14:45 jperkin Exp $
 #
 
 DISTNAME=	enlightenment-0.17.3
@@ -54,9 +54,9 @@ pre-install:
 
 PKGCONFIG_OVERRIDE=	enlightenment.pc.in
 
-MODULE_ARCH=	${LOWER_OPSYS}-${LOWER_ARCH}-${PKGVERSION_NOREV}
+MODULE_ARCH=	${LOWER_OPSYS}-${MACHINE_ARCH}-${PKGVERSION_NOREV}
 PLIST_SUBST=	MODULE_ARCH=${MODULE_ARCH}
-PRINT_PLIST_AWK+=        { gsub(/${MODULE_ARCH}/, "$${MODULE_ARCH}") }
+PRINT_PLIST_AWK+=	 { gsub(/${MODULE_ARCH}/, "$${MODULE_ARCH}") }
 
 .include "../../devel/ecore/buildlink3.mk"
 .include "../../devel/eet/buildlink3.mk"

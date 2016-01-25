@@ -1,4 +1,4 @@
-@comment $NetBSD: PLIST,v 1.56 2015/09/30 19:48:23 wiz Exp $
+@comment $NetBSD: PLIST,v 1.58 2016/01/12 10:33:45 wiz Exp $
 bin/gnc-fq-check
 bin/gnc-fq-dump
 bin/gnc-fq-helper
@@ -406,6 +406,10 @@ share/applications/gnucash.desktop
 share/doc/gnucash/AUTHORS
 share/doc/gnucash/COPYING
 share/doc/gnucash/ChangeLog
+share/doc/gnucash/ChangeLog.1999
+share/doc/gnucash/ChangeLog.2000
+share/doc/gnucash/ChangeLog.2001
+share/doc/gnucash/ChangeLog.2002
 share/doc/gnucash/ChangeLog.2003
 share/doc/gnucash/ChangeLog.2004
 share/doc/gnucash/ChangeLog.2005
@@ -732,6 +736,7 @@ share/gnucash/accounts/nb/acctchrt_spouseinc.gnucash-xea
 share/gnucash/accounts/nb/acctchrt_spouseretire.gnucash-xea
 share/gnucash/accounts/nl/acctchrt_checkbook.gnucash-xea
 share/gnucash/accounts/nl/acctchrt_full.gnucash-xea
+share/gnucash/accounts/nl/acctchrt_rgs_1.1.gnucash-xea
 share/gnucash/accounts/pl/acctchrt_brokerage.gnucash-xea
 share/gnucash/accounts/pl/acctchrt_business.gnucash-xea
 share/gnucash/accounts/pl/acctchrt_carloan.gnucash-xea
@@ -1196,6 +1201,7 @@ share/locale/nl/LC_MESSAGES/gnucash.mo
 share/locale/pl/LC_MESSAGES/gnucash.mo
 share/locale/pt/LC_MESSAGES/gnucash.mo
 share/locale/pt_BR/LC_MESSAGES/gnucash.mo
+share/locale/pt_PT/LC_MESSAGES/gnucash.mo
 share/locale/ro/LC_MESSAGES/gnucash.mo
 share/locale/ru/LC_MESSAGES/gnucash.mo
 share/locale/rw/LC_MESSAGES/gnucash.mo

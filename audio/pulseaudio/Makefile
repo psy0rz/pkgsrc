@@ -1,7 +1,6 @@
-# $NetBSD: Makefile,v 1.101 2015/12/10 10:54:50 ryoon Exp $
+# $NetBSD: Makefile,v 1.105 2016/01/22 19:29:11 ryoon Exp $
 
-DISTNAME=	pulseaudio-7.1
-PKGREVISION=	1
+DISTNAME=	pulseaudio-8.0
 CATEGORIES=	audio
 MASTER_SITES=	http://freedesktop.org/software/pulseaudio/releases/
 EXTRACT_SUFX=	.tar.xz
@@ -35,7 +34,7 @@ USE_PKGLOCALEDIR=	yes
 
 # Wrong sys/capability.h assumptions, incompatible implementation:
 .if ${OPSYS} == "FreeBSD"
-CONFIGURE_ARGS+=       --without-caps
+CONFIGURE_ARGS+=	--without-caps
 .endif
 
 CONFIGURE_ENV+=		EGDIR=${EGDIR}
@@ -57,6 +56,11 @@ CONFIGURE_ARGS+=	--sysconfdir=${PKG_SYSCONFBASEDIR:Q}
 # Build module-mmkbd-evdev.so under Linux
 .if ${OPSYS} == "Linux" && exists(/usr/include/linux/input.h)
 PLIST.evdev=		yes
+.endif
+
+.if ${OPSYS} == "Linux"
+PLIST.alsa=		yes
+.include "../../audio/alsa-lib/buildlink3.mk"
 .endif
 
 .include "options.mk"
@@ -85,7 +89,7 @@ CONF_FILES+=	${EGDIR}/system.pa ${PKG_SYSCONFDIR}/system.pa
 CONF_FILES+=	${EGDIR}/pulseaudio-system.conf \
 		${PKG_SYSCONFBASE}/dbus-1/system.d/pulseaudio-system.conf
 
-PLIST_VARS+=		bonjour coreaudio evdev oss sun
+PLIST_VARS+=		alsa bonjour coreaudio evdev oss sun
 
 .if ${OPSYS} == "SunOS"
 PLIST.sun=		yes
