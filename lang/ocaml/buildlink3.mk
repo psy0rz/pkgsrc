@@ -25,6 +25,7 @@ ocaml-wrappers:
 			-e 's|@OCAML_PREFIX@|${BUILDLINK_PREFIX.ocaml}|g' \
 			-e 's|@CFLAGS@|'${CFLAGS:Q}'|g'			\
 			-e 's|@LDFLAGS@|'${LDFLAGS:Q}'|g'		\
+			-e 's|@WRAPPEE@|'$$w'|g'			\
 			< ${.CURDIR}/../../lang/ocaml/files/wrapper.sh	\
 			> ${BUILDLINK_DIR}/bin/"$$w";			\
 		${CHMOD} +x ${BUILDLINK_DIR}/bin/"$$w";			\

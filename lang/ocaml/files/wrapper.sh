@@ -5,9 +5,9 @@
 BINDIR='@OCAML_PREFIX@'
 CFLAGS='@CFLAGS@'
 LDFLAGS='@LDFLAGS@'
+WRAPPEE='@WRAPPEE@'
 
-if echo "$@" | grep ' -c ' >/dev/null
-then
+if echo "$@" | grep ' -c ' >/dev/null || [ "${WRAPPEE}" = "ocamlmklib" ]; then
 	flags="${CFLAGS}"
 else
 	flags="${CFLAGS} ${LDFLAGS}"
@@ -18,4 +18,8 @@ do
 	MLFLAGS="${MLFLAGS} -ccopt ${f}"
 done
 
-exec "@OCAML_PREFIX@/bin/`basename $0`" ${MLFLAGS} "$@"
+if [ "${WRAPPEE}" = "ocamlmklib" ]; then
+	MLFLAGS="${MLFLAGS} ${LDFLAGS}"
+fi
+
+exec "@OCAML_PREFIX@/bin/${WRAPPEE}" ${MLFLAGS} "$@"

@@ -51,7 +51,8 @@ PLIST_SRC+=	${PKGDIR}/PLIST.prof
       !empty(MACHINE_PLATFORM:MFreeBSD-*-*) || \
       !empty(MACHINE_PLATFORM:MDragonFly-*-*) || \
       !empty(MACHINE_PLATFORM:MNetBSD-*-*) || \
-      !empty(MACHINE_PLATFORM:MDarwin-*-*)
+      !empty(MACHINE_PLATFORM:MDarwin-*-*) || \
+      !empty(MACHINE_PLATFORM:MSunOS-*-*)
 PLIST_SRC+=	${PKGDIR}/PLIST.natdynlink
 .  endif
 .endif
