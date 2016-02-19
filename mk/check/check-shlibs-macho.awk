@@ -80,10 +80,15 @@ function checkshlib(DSO,	needed, found) {
 		# Ensure we don't have any WRKDIR references.
 		#
 		if (lib == wrkdir ||
-		    substr(lib, 1, length(wrkdir) + 1) == wrkdir "/") {
+		    substr(lib, 1, length(wrkdir) + 1) == wrkdir "/")
 			print DSO ": path relative to WRKDIR: " lib
-			break
-		}
+
+		#
+		# Ensure there are no relative paths.
+		#
+		if (substr(lib, 1, 1) != "/")
+			print DSO ": relative library path: " lib
+
 		#
 		# Check destination dirs for library existence.  If found in a
 		# system path (cross_destdir is somewhat confusing but if set
