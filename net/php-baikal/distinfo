@@ -1,7 +1,6 @@
-$NetBSD: distinfo,v 1.1 2015/11/24 11:38:28 wiz Exp $
+$NetBSD: distinfo,v 1.3 2016/02/18 23:25:00 wiz Exp $
 
-SHA1 (baikal-regular-0.2.7.tgz) = 01eabcf0229ddffc0542f4e2a349754e778abbea
-RMD160 (baikal-regular-0.2.7.tgz) = 4b88ce29a2f75ce7ad2d2e48c730f39c9826592d
-SHA512 (baikal-regular-0.2.7.tgz) = 261e34eda6e85e38f9478e04f68fdea09ea12203a11b47aaf1a446e33333a9d8d1d9663f4a36da1cfd2adf776ba3f4be459b2639cc1a23e64e8584e47632bb8f
-Size (baikal-regular-0.2.7.tgz) = 2273699 bytes
-SHA1 (patch-Core_Frameworks_Flake_Util_Tools.php) = e6572179579078e6beec41f09718d613e24fa01b
+SHA1 (baikal-0.3.2.zip) = 18fca25bb6d1bc6cfcd8238995bc19797bb412ac
+RMD160 (baikal-0.3.2.zip) = 1597186243cf57b932ecfd556858a1f100339a04
+SHA512 (baikal-0.3.2.zip) = 5b61058e013f45560d1dde612a2ab16bdf8b1f86d799d79af07f8f49fdb182fa70ce4ba7e88388053b55cffddf0ba719041414031f57c5fcb4c9bd4aba8913fa
+Size (baikal-0.3.2.zip) = 3284033 bytes

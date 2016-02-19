@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.1152 2016/02/08 02:32:15 markd Exp $
+# $NetBSD: Makefile,v 1.1156 2016/02/18 04:21:37 jnemeth Exp $
 #
 
 COMMENT=	Packages related to the World Wide Web
@@ -13,6 +13,7 @@ SUBDIR+=	amaya
 SUBDIR+=	analog
 SUBDIR+=	ap-auth-kerb
 SUBDIR+=	ap-auth-mysql
+SUBDIR+=	ap-authnz-crowd
 SUBDIR+=	ap-fastcgi
 SUBDIR+=	ap-geoip2
 SUBDIR+=	ap-mono
@@ -634,10 +635,12 @@ SUBDIR+=	py-google-api-python-client
 SUBDIR+=	py-google-api-python-client-py3
 SUBDIR+=	py-graphite-web
 SUBDIR+=	py-gunicorn
+SUBDIR+=	py-h2
 SUBDIR+=	py-http-parser
 SUBDIR+=	py-httpbin
 SUBDIR+=	py-httpie
 SUBDIR+=	py-httplib2
+SUBDIR+=	py-hyperframe
 SUBDIR+=	py-idna
 SUBDIR+=	py-jonpy
 SUBDIR+=	py-livereload
