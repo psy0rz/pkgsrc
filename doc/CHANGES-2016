@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-2016,v 1.772 2016/02/18 23:25:11 wiz Exp $
+$NetBSD: CHANGES-2016,v 1.793 2016/02/20 09:57:20 jperkin Exp $
 
 Changes to the packages collection and infrastructure in 2016:
 
@@ -1006,3 +1006,26 @@ Changes to the packages collection and infrastructure in 2016:
 	Updated databases/py-postgresql to 4.2.1 [darcy 2016-02-18]
 	Updated multimedia/phonon to 4.8.3nb1 [jperkin 2016-02-18]
 	Updated net/php-baikal to 0.3.2 [wiz 2016-02-18]
+	Updated x11/xf86-video-amdgpu to 1.0.1 [wiz 2016-02-19]
+	Updated net/tigervnc to 1.6.0 [wiz 2016-02-19]
+	Updated archivers/libzip to 1.1.2 [wiz 2016-02-19]
+	Updated www/firefox38 to 38.6.1 [ryoon 2016-02-19]
+	Updated devel/xulrunner38 to 38.6.1 [ryoon 2016-02-19]
+	Updated www/firefox38-l10n to 38.6.1 [ryoon 2016-02-19]
+	Updated lang/tcl to 8.6.4nb6 [jperkin 2016-02-19]
+	Updated devel/deforaos-libsystem to 0.3.0 [khorben 2016-02-19]
+	Updated security/netpgpverify to 20160214 [agc 2016-02-19]
+	Updated security/libnetpgpverify to 20160214 [agc 2016-02-19]
+	Updated lang/openjdk8 to 1.8.74 [ryoon 2016-02-19]
+	Updated x11/deforaos-libdesktop to 0.2.1 [khorben 2016-02-20]
+	Updated sysutils/deforaos-browser to 0.5.0 [khorben 2016-02-20]
+	Updated x11/deforaos-panel to 0.3.6 [khorben 2016-02-20]
+	Updated graphics/deforaos-camera to 0.2.0 [khorben 2016-02-20]
+	Updated devel/deforaos-coder to 0.2.0 [khorben 2016-02-20]
+	Updated devel/deforaos-configure to 0.2.3 [khorben 2016-02-20]
+	Updated comms/deforaos-phone to 0.5.0 [khorben 2016-02-20]
+	Added devel/deforaos-cpp version 0.0.3 [khorben 2016-02-20]
+	Added devel/deforaos-asm version 0.2.3 [khorben 2016-02-20]
+	Updated graphics/deforaos-icon-theme to 0.1.2 [khorben 2016-02-20]
+	Updated graphics/feh to 2.14.2 [szptvlfn 2016-02-20]
+	Updated devel/dconf to 0.22.0nb3 [jperkin 2016-02-20]
