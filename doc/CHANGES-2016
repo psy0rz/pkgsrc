@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-2016,v 1.793 2016/02/20 09:57:20 jperkin Exp $
+$NetBSD: CHANGES-2016,v 1.809 2016/02/21 07:42:00 ryoon Exp $
 
 Changes to the packages collection and infrastructure in 2016:
 
@@ -1029,3 +1029,19 @@ Changes to the packages collection and infrastructure in 2016:
 	Updated graphics/deforaos-icon-theme to 0.1.2 [khorben 2016-02-20]
 	Updated graphics/feh to 2.14.2 [szptvlfn 2016-02-20]
 	Updated devel/dconf to 0.22.0nb3 [jperkin 2016-02-20]
+	Updated databases/sqlite3-tcl to 3.11.0nb1 [jperkin 2016-02-20]
+	Updated audio/audacious to 3.5.2nb2 [jperkin 2016-02-20]
+	Updated devel/capstone to 3.0.4nb1 [jperkin 2016-02-20]
+	Updated x11/deforaos-locker to 0.4.0 [khorben 2016-02-20]
+	Updated textproc/cdif to 2.14 [mef 2016-02-20]
+	Updated x11/deforaos-integration to 0.0.2 [khorben 2016-02-20]
+	Updated mail/deforaos-mailer to 0.1.7 [khorben 2016-02-20]
+	Updated audio/deforaos-mixer to 0.2.0 [khorben 2016-02-20]
+	Updated x11/deforaos-notes to 0.1.0 [khorben 2016-02-20]
+	Updated games/xpat2 to 1.07nb4 [dholland 2016-02-20]
+	Updated time/deforaos-todo to 0.2.1 [khorben 2016-02-20]
+	Updated cad/gtkwave to 3.3.70 [mef 2016-02-20]
+	Updated net/mikutter to 3.3.7 [tsutsui 2016-02-21]
+	Updated www/p5-Mojolicious to 6.47 [wen 2016-02-21]
+	Updated math/p5-Math-Base36 to 0.14 [wen 2016-02-21]
+	Updated devel/z80-asm to 2.3.7nb1 [ryoon 2016-02-21]
