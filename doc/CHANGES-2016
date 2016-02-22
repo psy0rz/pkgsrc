@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-2016,v 1.809 2016/02/21 07:42:00 ryoon Exp $
+$NetBSD: CHANGES-2016,v 1.830 2016/02/22 12:41:30 taca Exp $
 
 Changes to the packages collection and infrastructure in 2016:
 
@@ -1045,3 +1045,24 @@ Changes to the packages collection and infrastructure in 2016:
 	Updated www/p5-Mojolicious to 6.47 [wen 2016-02-21]
 	Updated math/p5-Math-Base36 to 0.14 [wen 2016-02-21]
 	Updated devel/z80-asm to 2.3.7nb1 [ryoon 2016-02-21]
+	Updated fonts/harfbuzz to 1.2.0 [wiz 2016-02-21]
+	Updated devel/afl to 2.03b [wiz 2016-02-21]
+	Updated devel/py-atomicwrites to 0.1.9 [wiz 2016-02-21]
+	Updated security/py-service_identity to 16.0.0 [wiz 2016-02-21]
+	Updated www/deforaos-surfer to 0.2.10 [khorben 2016-02-21]
+	Updated graphics/opencv to 3.1.0 [fhajny 2016-02-21]
+	Updated sysutils/znapzend to 0.15.2 [wiedi 2016-02-21]
+	Updated editors/nano to 2.5.2 [wiedi 2016-02-21]
+	Updated www/goaccess to 0.9.7 [wiedi 2016-02-21]
+	Updated devel/protobuf-c to 1.2.1 [wiedi 2016-02-21]
+	Updated print/deforaos-pdfviewer to 0.0.2 [khorben 2016-02-21]
+	Updated editors/deforaos-editor to 0.4.0 [khorben 2016-02-21]
+	Updated meta-pkgs/deforaos-desktop to 0.0.10 [khorben 2016-02-21]
+	Updated textproc/xerces-c to 3.1.3 [wiz 2016-02-21]
+	Updated time/py-vdirsyncer to 0.9.0 [wiz 2016-02-21]
+	Updated www/py-nevow to 0.13.0 [wiz 2016-02-21]
+	Updated net/openresolv to 3.7.3 [roy 2016-02-22]
+	Updated databases/mongodb to 3.2.3 [fhajny 2016-02-22]
+	Updated devel/py-argcomplete to 1.1.0 [fhajny 2016-02-22]
+	Updated mail/mutt to 1.5.24nb2 [wiz 2016-02-22]
+	Updated mail/dovecot2-pigeonhole to 0.4.12 [taca 2016-02-22]
