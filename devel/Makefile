@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.2219 2016/02/23 02:10:53 wen Exp $
+# $NetBSD: Makefile,v 1.2221 2016/02/25 19:52:07 fhajny Exp $
 #
 
 COMMENT=	Development utilities
@@ -13,6 +13,7 @@ SUBDIR+=	ProjectCenter
 SUBDIR+=	R-Rcpp
 SUBDIR+=	R-evaluate
 SUBDIR+=	R-magrittr
+SUBDIR+=	R-proto
 SUBDIR+=	RBTools
 SUBDIR+=	RTFM
 SUBDIR+=	RTx-RightsMatrix
@@ -103,6 +104,7 @@ SUBDIR+=	bzr-svn
 SUBDIR+=	bzrtools
 SUBDIR+=	c-cpp-reference
 SUBDIR+=	capstone
+SUBDIR+=	catch
 SUBDIR+=	cbrowser
 SUBDIR+=	ccache
 SUBDIR+=	cdecl
