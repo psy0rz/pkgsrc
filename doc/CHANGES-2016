@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-2016,v 1.867 2016/02/26 02:24:50 leot Exp $
+$NetBSD: CHANGES-2016,v 1.887 2016/02/27 20:55:15 wiz Exp $
 
 Changes to the packages collection and infrastructure in 2016:
 
@@ -1177,3 +1177,24 @@ Changes to the packages collection and infrastructure in 2016:
 	Added databases/postgresql95-replicationtools version 9.5.1 [tnn 2016-02-25]
 	Added databases/postgresql95-server version 9.5.1 [tnn 2016-02-25]
 	Updated print/evince3 to 3.18.2 [leot 2016-02-26]
+	Added databases/wiredtiger version 2.7.0 [fhajny 2016-02-26]
+	Updated security/openssh to 7.1.1nb3 [tez 2016-02-26]
+	Updated textproc/p5-XML-XPath to 1.32 [wen 2016-02-27]
+	Updated textproc/p5-XML-Simple to 2.22 [wen 2016-02-27]
+	Updated textproc/p5-XML-RSS to 1.58 [wen 2016-02-27]
+	Updated www/trac to 1.0.10 [gdt 2016-02-27]
+	Updated net/mikutter to 3.3.8 [tsutsui 2016-02-27]
+	Updated textproc/p5-XML-Rabbit to 0.4.1 [wen 2016-02-27]
+	Updated textproc/p5-Text-Soundex to 3.0.5 [wen 2016-02-27]
+	Updated textproc/p5-Text-Reflow to 1.11 [wen 2016-02-27]
+	Updated databases/p5-DBIx-Class to 0.082821 [wen 2016-02-27]
+	Updated databases/p5-DBIx-Class-Schema-Loader to 0.07045 [wen 2016-02-27]
+	Updated databases/p5-DBIx-Class-RDBOHelpers to 0.12 [wen 2016-02-27]
+	Updated time/p5-DateTime-Format-Strptime to 1.64 [wen 2016-02-27]
+	Updated databases/p5-DBIx-Class-Helpers to 2.032000 [wen 2016-02-27]
+	Updated www/p5-Mojolicious to 6.50 [wen 2016-02-27]
+	Updated databases/mysql55-client to 5.5.48 [adam 2016-02-27]
+	Updated databases/mysql55-server to 5.5.48 [adam 2016-02-27]
+	Added net/sayaka version 3.2.0 [tsutsui 2016-02-27]
+	Added devel/elfcat version 1.0.0 [kamil 2016-02-27]
+	Updated devel/py-boost to 1.60.0nb1 [wiz 2016-02-27]
