@@ -140,6 +140,27 @@ _OPSYS_PREFER.mit-krb5?=	native
 _OPSYS_PREFER.openssl?=		pkgsrc	# builtin deprecated from 10.7 onwards
 .endif
 
+BUILDLINK_TRANSFORM+=	rm:-Wl,--as-needed
+BUILDLINK_TRANSFORM+=	rm:-Wl,--no-as-needed
+BUILDLINK_TRANSFORM+=	rm:-Wl,--export-dynamic
+BUILDLINK_TRANSFORM+=	rm:-Wl,--gc-sections
+BUILDLINK_TRANSFORM+=	rm:-Wl,--warn-common
+BUILDLINK_TRANSFORM+=	rm:-Wl,--warn-shared-textrel
+BUILDLINK_TRANSFORM+=	rm:-Wl,-export-dynamic
+BUILDLINK_TRANSFORM+=	rm:-Wl,-Bsymbolic
+BUILDLINK_TRANSFORM+=	rm:-Wl,-shared
+BUILDLINK_TRANSFORM+=	rm:-Wl,-warn-common
+BUILDLINK_TRANSFORM+=	rm:-Wl,-dynamiclib
+BUILDLINK_TRANSFORM+=	rm:-Wl,-O1
+BUILDLINK_TRANSFORM+=	rm:-Wl,-Map
+BUILDLINK_TRANSFORM+=	rm:-Wl,-Bdynamic
+BUILDLINK_TRANSFORM+=	rm:-Wl,--verbose
+BUILDLINK_TRANSFORM+=	rm:-Wl,--shared
+BUILDLINK_TRANSFORM+=	rm:-Wl,--gc-sections
+BUILDLINK_TRANSFORM+=	rm:-Wl,--no-undefined
+BUILDLINK_TRANSFORM+=	rm:-export-dynamic
+BUILDLINK_TRANSFORM+=	rm:-mimpure-text
+
 # flags passed to the linker to extract all symbols from static archives.
 # this is GNU ld.
 .if empty(MACHINE_PLATFORM:MDarwin-[0-8].*-*)
