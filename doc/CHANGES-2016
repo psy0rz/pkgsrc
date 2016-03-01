@@ -1,4 +1,4 @@
-$NetBSD: CHANGES-2016,v 1.887 2016/02/27 20:55:15 wiz Exp $
+$NetBSD: CHANGES-2016,v 1.908 2016/03/01 13:59:25 leot Exp $
 
 Changes to the packages collection and infrastructure in 2016:
 
@@ -1198,3 +1198,29 @@ Changes to the packages collection and infrastructure in 2016:
 	Added net/sayaka version 3.2.0 [tsutsui 2016-02-27]
 	Added devel/elfcat version 1.0.0 [kamil 2016-02-27]
 	Updated devel/py-boost to 1.60.0nb1 [wiz 2016-02-27]
+	Updated databases/mysql56-client to 5.6.29 [adam 2016-02-28]
+	Updated databases/mysql56-server to 5.6.29 [adam 2016-02-28]
+	Updated www/nghttp2 to 1.8.0 [adam 2016-02-28]
+	Updated mail/thunderbird to 38.6.0 [ryoon 2016-02-28]
+	Updated mail/thunderbird-l10n to 38.6.0 [ryoon 2016-02-28]
+	Updated www/apache-tomcat6 to 6.0.45 [ryoon 2016-02-28]
+	Updated www/apache-tomcat7 to 7.0.68 [ryoon 2016-02-28]
+	Updated www/apache-tomcat8 to 8.0.32 [ryoon 2016-02-28]
+	Added textproc/cmark version 0.24.1 [kamil 2016-02-28]
+	Updated net/knot to 2.1.1 [pettai 2016-02-28]
+	Updated print/hplip to 3.16.2 [schnoebe 2016-02-28]
+	Updated chat/jabberd2 to 2.3.6 [schnoebe 2016-02-28]
+	Updated devel/boost-headers to 1.60.0nb3 [minskim 2016-02-28]
+	Updated devel/boost-libs to 1.60.0nb2 [minskim 2016-02-28]
+	Updated devel/git to 2.7.2 [adam 2016-02-29]
+	Updated editors/abiword to 3.0.1nb1 [jperkin 2016-02-29]
+	Updated lang/ocaml to 4.02.3nb3 [jperkin 2016-02-29]
+	Updated www/py-google-api-python-client to 1.5.0 [mef 2016-03-01]
+	Added multimedia/phonon-qt5 version 4.8.3 [markd 2016-03-01]
+	Added multimedia/phonon-qt5-backend-vlc version 0.8.2 [markd 2016-03-01]
+	Added multimedia/phonon-qt5-backend-gstreamer version 4.8.2 [markd 2016-03-01]
+	Added multimedia/phonon-backend-gstreamer-shared version 4.8.2 [markd 2016-03-01]
+	Added filesystems/fuse-sshfs version 2.6 [jmmv 2016-03-01]
+	Updated net/miniupnpd to 1.9.20160222 [adam 2016-03-01]
+	Updated chat/swift to 3.0 [wiz 2016-03-01]
+	Updated textproc/heirloom-doctools to 160217 [leot 2016-03-01]

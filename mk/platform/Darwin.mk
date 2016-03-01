@@ -1,4 +1,4 @@
-# $NetBSD: Darwin.mk,v 1.78 2016/02/24 14:59:56 jperkin Exp $
+# $NetBSD: Darwin.mk,v 1.79 2016/02/29 10:05:47 jperkin Exp $
 #
 # Variable definitions for the Darwin operating system.
 
@@ -140,26 +140,17 @@ _OPSYS_PREFER.mit-krb5?=	native
 _OPSYS_PREFER.openssl?=		pkgsrc	# builtin deprecated from 10.7 onwards
 .endif
 
+# Remove common GNU ld arguments incompatible with the Darwin linker.
+BUILDLINK_TRANSFORM+=	rm:-Wl,-O1
+BUILDLINK_TRANSFORM+=	rm:-Wl,-Bdynamic
+BUILDLINK_TRANSFORM+=	rm:-Wl,-Bsymbolic
+BUILDLINK_TRANSFORM+=	rm:-Wl,-export-dynamic
+BUILDLINK_TRANSFORM+=	rm:-Wl,-warn-common
 BUILDLINK_TRANSFORM+=	rm:-Wl,--as-needed
 BUILDLINK_TRANSFORM+=	rm:-Wl,--no-as-needed
 BUILDLINK_TRANSFORM+=	rm:-Wl,--export-dynamic
 BUILDLINK_TRANSFORM+=	rm:-Wl,--gc-sections
-BUILDLINK_TRANSFORM+=	rm:-Wl,--warn-common
-BUILDLINK_TRANSFORM+=	rm:-Wl,--warn-shared-textrel
-BUILDLINK_TRANSFORM+=	rm:-Wl,-export-dynamic
-BUILDLINK_TRANSFORM+=	rm:-Wl,-Bsymbolic
-BUILDLINK_TRANSFORM+=	rm:-Wl,-shared
-BUILDLINK_TRANSFORM+=	rm:-Wl,-warn-common
-BUILDLINK_TRANSFORM+=	rm:-Wl,-dynamiclib
-BUILDLINK_TRANSFORM+=	rm:-Wl,-O1
-BUILDLINK_TRANSFORM+=	rm:-Wl,-Map
-BUILDLINK_TRANSFORM+=	rm:-Wl,-Bdynamic
-BUILDLINK_TRANSFORM+=	rm:-Wl,--verbose
-BUILDLINK_TRANSFORM+=	rm:-Wl,--shared
-BUILDLINK_TRANSFORM+=	rm:-Wl,--gc-sections
 BUILDLINK_TRANSFORM+=	rm:-Wl,--no-undefined
-BUILDLINK_TRANSFORM+=	rm:-export-dynamic
-BUILDLINK_TRANSFORM+=	rm:-mimpure-text
 
 # flags passed to the linker to extract all symbols from static archives.
 # this is GNU ld.
