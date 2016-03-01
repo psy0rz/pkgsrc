@@ -115,6 +115,9 @@ _OPSYS_SYSTEM_RPATH?=	/lib${LIBABISUFFIX}:/usr/lib${LIBABISUFFIX}
 _OPSYS_LIB_DIRS?=	/lib${LIBABISUFFIX} /usr/lib${LIBABISUFFIX}
 _OPSYS_INCLUDE_DIRS?=	/usr/include
 
+_OPSYS_SUPPORTS_FORTIFY=	yes
+_OPSYS_SUPPORTS_SSP=		yes
+
 _OPSYS_CAN_CHECK_SHLIBS=	yes # requires readelf
 
 # check for maximum command line length and set it in configure's environment,

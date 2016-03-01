@@ -338,6 +338,14 @@ _WRAP_EXTRA_ARGS.CC+=	-std=gnu99
 CWRAPPERS_APPEND.cc+=	-std=gnu99
 .endif
 
+.if ${_PKGSRC_USE_FORTIFY} == "yes"
+CWRAPPERS_APPEND.cc+=	-D_FORTIFY_SOURCE=2
+.endif
+
+.if ${_PKGSRC_USE_SSP} == "yes"
+CWRAPPERS_APPEND.cc+=	-fstack-protector
+.endif
+
 # GCC has this annoying behaviour where it advocates in a multi-line
 # banner the use of "#include" over "#import" when including headers.
 # This generates a huge number of warnings when building practically all

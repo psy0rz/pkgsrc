@@ -712,6 +712,15 @@ _USE_CWRAPPERS=		yes
 _USE_CWRAPPERS=		no
 .endif
 
+_PKGSRC_USE_FORTIFY=	no
+_PKGSRC_USE_SSP=	no
+.if ${PKGSRC_USE_FORTIFY:tl} == "yes" && ${_OPSYS_SUPPORTS_FORTIFY:Uno} == "yes"
+_PKGSRC_USE_FORTIFY=	yes
+.endif
+.if ${PKGSRC_USE_SSP:tl} == "yes" && ${_OPSYS_SUPPORTS_SSP:Uno} == "yes"
+_PKGSRC_USE_SSP=	yes
+.endif
+
 # Wrapper framework definitions
 .include "wrapper/wrapper-defs.mk"
 

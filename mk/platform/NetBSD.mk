@@ -128,19 +128,10 @@ FFLAGS+=	-mieee
 PKG_HAVE_KQUEUE=	# defined
 .endif
 
-.if ${PKGSRC_USE_FORT:Uno} != "no"
-# build with fortify
-_GCC_CFLAGS+=	-D_FORTIFY_SOURCE=2
-.endif
-
-.if ${PKGSRC_USE_SSP:Uno} != "no"
-. if (${MACHINE_ARCH} != "alpha") && \
-	(${MACHINE_ARCH} != "hppa") && \
-	(${MACHINE_ARCH} != "ia64") && \
-	(${MACHINE_ARCH} != "mips")
-# build with stack protection (with GCC)
-_GCC_CFLAGS+=	-fstack-protector
-. endif
+_OPSYS_SUPPORTS_FORTIFY=	yes
+. if ${MACHINE_ARCH} != "alpha") && ${MACHINE_ARCH} != "hppa" && \
+     ${MACHINE_ARCH} != "ia64") && ${MACHINE_ARCH} != "mips"
+_OPSYS_SUPPORTS_SSP=		yes
 .endif
 
 _OPSYS_CAN_CHECK_SHLIBS=	yes # use readelf in check/bsd.check-vars.mk
