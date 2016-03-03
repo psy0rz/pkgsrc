@@ -1,4 +1,4 @@
-# $NetBSD: Makefile,v 1.2222 2016/02/27 17:14:14 kamil Exp $
+# $NetBSD: Makefile,v 1.2224 2016/03/03 14:38:01 jmmv Exp $
 #
 
 COMMENT=	Development utilities
@@ -72,6 +72,7 @@ SUBDIR+=	automoc4
 SUBDIR+=	avl
 SUBDIR+=	avltree
 SUBDIR+=	bam
+SUBDIR+=	bazel
 SUBDIR+=	bcc
 SUBDIR+=	bglibs
 SUBDIR+=	bin86
@@ -1975,6 +1976,7 @@ SUBDIR+=	ruby-racc
 SUBDIR+=	ruby-railties32
 SUBDIR+=	ruby-rake
 SUBDIR+=	ruby-randexp
+SUBDIR+=	ruby-rb-fsevent
 SUBDIR+=	ruby-rbtree
 SUBDIR+=	ruby-rcov
 SUBDIR+=	ruby-rcsparse
